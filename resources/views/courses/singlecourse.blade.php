@@ -25,15 +25,17 @@
     </div>
 
     <div class="published">
-        <h6>Published on: {{ $course->created_at->toFormattedDateString() }}</h6>
+        <h6>Ngày tạo: {{ $course->created_at->toFormattedDateString() }}</h6>
     </div>
     <div class="author">
-        <h6 class= "lead">Author: {{ $author->name }}</h6>
+        <h6 class= "lead">Người tạo: {{ $author->name }}</h6>
     </div>
-
+    <div class="course-content">
+            <p>{{ $course->information }}</p>
+        </div>
     @if ($enroll == true && Auth::user()->role->first()->name == "Student")
         <div class="course-content">
-            <p class = "lead">{{ $course->description }}</p>
+            <h3>{{ $course->description }}</h3>
         </div>
         <div class="course-content">
             {!! link_to('/storage/'.$course->file, 'Tài liệu', $secure = null); !!}

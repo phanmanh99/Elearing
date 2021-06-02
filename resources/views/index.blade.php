@@ -158,19 +158,19 @@
       <div class="u-blog u-layout-horizontal u-blog-1">
         <div class="u-list-control"></div>
         <div class="u-repeater u-repeater-1"><!--blog_post-->
-          @for($i=0;$i<7;$i++)
+          @foreach ($courses as $course)
           <div class="u-blog-post u-container-style u-repeater-item">
             <div class="u-container-layout u-similar-container u-container-layout-5"><!--blog_post_header-->
               <h2 class="u-blog-control u-text">
-                <a class="u-post-header-link" href="blog/khóa-hc-excel-c-bn-sale-30.html"><!--blog_post_header_content-->Khóa học Excel cơ bản</a>
+                <a class="u-post-header-link" href="{{ route('course.show', [$course->id]) }}">{{ $course['title'] }}</a>
               </h2><!--/blog_post_header-->
-              <a class="u-post-header-link" href="blog/khóa-hc-excel-c-bn-sale-30.html"><!--blog_post_image-->
-                <img src="images/134756131_2750497941933194_1153463551736771950_n.jpg" alt="" class="u-blog-control u-expanded-width u-image u-image-default u-image-1"><!--/blog_post_image-->
+              <a class="u-post-header-link" href="{{ route('course.show', [$course->id]) }}"><!--blog_post_image-->
+                <img src="{{ url('storage/'. $course->thumbnail )}}" alt="" class="u-blog-control u-expanded-width u-image u-image-default u-image-1"><!--/blog_post_image-->
               </a><!--blog_post_content-->
-              <div class="u-blog-control u-post-content u-text"><!--blog_post_content_content-->Bạn là sinh viên, học viên theo học đại học đang cần&nbsp;học tin học văn phòng&nbsp;chuyên về Excel một cách bài bản, ngắn gọn và thực tế.Bạn mới ra trường là việc trong môi trường văn phòng công sở, có kiến thức nền tảng về Excel cơ bản nhưng lại không thể tối ưu...<!--/blog_post_content_content--></div><!--/blog_post_content-->
+              <div class="u-blog-control u-post-content u-text">{{ $course['information'] }}</div><!--/blog_post_content-->
             </div>
           </div><!--/blog_post-->
-          @endfor
+          @endforeach
         </div>
         <div class="u-list-control"></div>
         <a class="u-absolute-vcenter u-gallery-nav u-gallery-nav-prev u-grey-70 u-icon-circle u-opacity u-opacity-70 u-spacing-10 u-text-white u-gallery-nav-1" href="#" role="button">
@@ -204,18 +204,21 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
         <div class="u-clearfix u-expanded-width u-gutter-10 u-layout-wrap u-layout-wrap-1">
           <div class="u-layout">
             <div class="u-layout-row">
-              @for($i=1;$i<6;$i++)
-              <div class="u-align-center u-container-style u-layout-cell u-size-12 u-white u-layout-cell-{{$i}}">
-                <div class="u-border-5 u-border-grey-75 u-container-layout u-container-layout-{{$i}}">
+                @foreach($users as $user)
+                  @if ($user->role->first()->id == 2)
+              <div class="u-align-center u-container-style u-layout-cell u-size-12 u-white u-layout-cell-1">
+                <div class="u-border-5 u-border-grey-75 u-container-layout u-container-layout-1">
                   <div alt="" class="u-image u-image-circle u-preserve-proportions u-image-2" data-image-width="626" data-image-height="626"></div>
                   <p class="u-text u-text-4"><span class="u-icon u-icon-2"><svg class="u-svg-content" viewBox="0 0 45.947 45.947" x="0px" y="0px" style="width: 1em; height: 1em;"><g><g><circle cx="22.986" cy="8.596" r="8.596"></circle><path d="M31.68,20.067h-0.108l-0.367,4.769c-0.052,0.667-0.539,1.219-1.194,1.352l-2.736,0.557l0.673,1.984    c0.13,0.383,0.099,0.801-0.085,1.161c0,0-2.656,5.202-3.542,6.935c-0.003,0.006-0.436,0.688-1.302,0.688    c-1.07,0-1.359-0.683-1.361-0.688c-0.887-1.732-3.543-6.935-3.543-6.935c-0.183-0.36-0.214-0.778-0.085-1.159l0.673-1.984    l-2.738-0.557c-0.654-0.132-1.142-0.684-1.192-1.35l-0.368-4.772h-0.108c-5.95,0-10.772,4.823-10.772,10.772v12.09    c0,1.667,1.351,3.018,3.018,3.018h32.865c1.667,0,3.018-1.351,3.018-3.018V30.808C42.42,24.876,37.612,20.067,31.68,20.067z     M35.527,40.723h-2.27v2.23c0,0.826-0.662,1.494-1.486,1.494c-0.825,0-1.486-0.668-1.486-1.494v-2.23h-2.232    c-0.824,0-1.494-0.66-1.494-1.486s0.67-1.487,1.494-1.487h2.232v-2.271c0-0.826,0.661-1.496,1.486-1.496    c0.824,0,1.486,0.67,1.486,1.496v2.271h2.27c0.824,0,1.494,0.661,1.494,1.487S36.352,40.723,35.527,40.723z"></path><path d="M25.014,24.15l3.297-0.67l0.263-3.414H17.399l0.263,3.414l3.296,0.67c0.422,0.086,0.784,0.348,0.999,0.721    c0.214,0.371,0.258,0.818,0.12,1.225l-1.015,2.995l1.924,3.767l1.925-3.767l-1.016-2.995c-0.138-0.406-0.094-0.854,0.121-1.225    C24.23,24.498,24.594,24.236,25.014,24.15z"></path>
+            }
 </g>
 </g></svg><img></span>&nbsp;Giáo viên
                   </p>
-                  <h4>Thúy Hiền</h4>
+                  <h4>{{$user->name}}</h4>
                 </div>
               </div>
-              @endfor
+                  @endif
+                @endforeach
           </div>
         </div>
       </div>

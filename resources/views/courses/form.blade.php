@@ -6,7 +6,7 @@
                         Tên khóa học không được để trống
                     </div>
                 @endif 
-            </div>
+            </div
             <div class="form-group">
                 {!! Form::label('thumbnail', 'Hình ảnh:' ) !!}
                 {!! Form::file('thumbnail', array('class' => 'form-control', 'accept'=> 'image/*')) !!}
@@ -30,6 +30,15 @@
                         File không được để trống
                     </div>
                 @endif 
+            </div>
+            <div class="form-group">
+                {!! Form::label('information', 'Thông tin: ') !!}
+                {!! Form::textarea('information', null, array('class' => 'form-control')) !!}
+                @if ($errors->any('information'))
+                    <div class="alert alert-danger">
+                        Thông tin không được để trống
+                    </div>
+                @endif                  
             </div>
             <div class="form-group">
                 {!! Form::label('description', 'Mô tả: ') !!}

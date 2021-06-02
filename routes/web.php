@@ -15,7 +15,9 @@ use App\User;
 */
 
 Route::get('/', function () {
-    return view('index');
+    $courses = Course::all();
+    $users = User::all();
+    return view('index', compact('courses', 'users'));
 })->name('index');
 
 Auth::routes();

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     protected $fillable = [
-        'title', 'thumbnail', 'file', 'user_id', 'authorname', 'description'
+        'title', 'information', 'thumbnail', 'file', 'user_id', 'authorname', 'description'
     ];
 
     protected $table ='courses';
